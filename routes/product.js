@@ -162,7 +162,7 @@ router.post('/purchase', auth, async (req, res) => {
 router.get('/purchaseHistory', auth, async (req, res) => {
     try {
         const userId = req.id;
-        const historyList = await OrderModel.find({ userId: userId });
+        const historyList = await OrderModel.find({ userId: userId }, null, {sort: {createdAt: -1}});
         const filteredList = historyList.map(item => {
             return {
                 address: item.prodData.address,

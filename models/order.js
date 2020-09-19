@@ -40,6 +40,8 @@ const orderSchema = new mongoose.Schema({
             default: 'Payment Done'
         }
     }
+}, {
+    timestamps: true
 });
 
 module.exports = mongoose.model('Order', orderSchema);
